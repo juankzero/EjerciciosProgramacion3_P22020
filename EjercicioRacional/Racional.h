@@ -22,6 +22,10 @@ public:
 	void imprimirRacional(void);
 	void imprimirDecimal(void);
 	
+	Racional sumarRacional(Racional);
+	Racional restaRacional(Racional);
+	Racional multiplicacionRacional(Racional);
+	Racional divisionRacional(Racional);
 
 };
 
