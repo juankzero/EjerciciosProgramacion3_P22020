@@ -45,7 +45,7 @@ float Rectangulo::getPerimetro()
 
 void Rectangulo::imprimirFigura() 
 {
-	cout << "Rectngulo: { base: " << getBase() << ", altura: " << getAltura()
+	cout << "Rectangulo: { base: " << getBase() << ", altura: " << getAltura()
 		<< " }\n";
 }
 
