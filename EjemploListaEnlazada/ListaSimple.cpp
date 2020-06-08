@@ -34,7 +34,7 @@ void ListaSimple::agregarNodo(int _valor)
 
 	}
 
-	cout << "¡Nodo agregado!\n";
+	cout << "Nodo agregado!\n";
 
 }
 
@@ -50,4 +50,41 @@ void ListaSimple::imprimirLista()
 	}
 
 	cout << "\n";
+}
+
+void ListaSimple::eliminarNodo(int _valor) 
+{
+	if (estaVacia())
+		return;
+	
+	Nodo* actual = primero;
+	Nodo* anterior = nullptr;
+
+	do 
+	{
+		if (actual->getValor() == _valor)
+		{
+			if ( actual == primero )
+			{
+				primero = actual->getSiguiente();
+				delete actual;
+			}
+			else
+			{
+				anterior->setSiguiente(actual->getSiguiente());
+				delete actual;
+			}
+
+			cout << "Nodo Eliminado...\n";
+			return;
+		}
+		else
+		{
+			anterior = actual;
+			actual = actual->getSiguiente();
+		}
+
+	} while (actual != nullptr);
+
+
 }

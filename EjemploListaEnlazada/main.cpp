@@ -13,5 +13,13 @@ int main()
 
 	ls.imprimirLista();
 
+	ls.eliminarNodo(3);
+
+	ls.imprimirLista();
+
+	ls.eliminarNodo(4);
+
+	ls.imprimirLista();
+
 	_getch();
 }
