@@ -22,6 +22,10 @@ public:
 
 	void eliminarElemento(int);
 
+	void insertarElemento(int, int);
+
+	int tamanioLista();
+
 };
 
 
