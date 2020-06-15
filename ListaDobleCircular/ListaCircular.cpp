@@ -149,15 +149,40 @@ void ListaCircular::insertarElemento(int _pos, int _valor)
 
 		Nodo* actual = primero;
 		int posActual = 1;
+		Nodo* nuevo = new Nodo(_valor, nullptr, nullptr);
 
 		do 
 		{
 			if (posActual == _pos)
 			{
 
-				//caso de insertar al inicio
-				//caso de insertar en medio
+				if (actual == primero)
+				{
+					nuevo->setSiguiente(primero);
+					primero->setAnterior(nuevo);
 
+					primero = nuevo;
+
+					primero->setAnterior(ultimo);
+					ultimo->setSiguiente(primero);
+				}
+				else
+				{
+					actual->getAnterior()->setSiguiente(nuevo);
+					nuevo->setAnterior(actual->getAnterior());
+
+					nuevo->setSiguiente(actual);
+					actual->setAnterior(nuevo);
+				}
+
+				cout << "Nodo insertado!\n";
+				return;
+
+			}
+			else
+			{
+				actual = actual->getSiguiente();
+				posActual++;
 			}
 
 

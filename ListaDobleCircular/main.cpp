@@ -29,6 +29,19 @@ int main()
 
 	lc.imprimirLista();
 
+	//[1] [3] [8] 
+
+	lc.insertarElemento(1, 7);
+
+	// [7] [1] [3] [8] 
+
+	lc.insertarElemento(4, 5);
+
+	// [7] [1] [3] [5] [8] 
+
+	lc.imprimirLista();
+
+
 
 	_getch();
 }
