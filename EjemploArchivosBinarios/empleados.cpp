@@ -83,3 +83,69 @@ void consultaEmpleados()
 	empleadosIn.close();
 
 }
+
+int cantidadEmpleados() 
+{
+	ifstream empleadosIn("empleados.dat", ios::in | ios::binary);
+
+	if (!empleadosIn)
+	{
+		cout << "Error al intentar abrir el archivo empleados.dat\n";
+		return -1;
+	}
+
+	//ubicarse a final del archivo
+	empleadosIn.seekg(0, ios::end);
+	
+	//obtener el ultimo byte del archivo
+	int posicionFinal = empleadosIn.tellg();
+
+	int cantidadRegistros = posicionFinal / sizeof(empleado);
+
+	empleadosIn.close();
+
+	return cantidadRegistros;
+
+}
+
+void desactivarEmpleado(int posicionEmpleado) 
+{
+
+	if (posicionEmpleado > cantidadEmpleados())
+	{
+		cout << "Posicion de Empleado incorrecta!\n";
+		return;
+	}
+
+	fstream empleadosInOut("empleados.dat", ios::in | ios::out | ios::binary);
+
+	if (!empleadosInOut)
+	{
+		cout << "Error al intentar abrir el archivo empleados.dat\n";
+		return;
+	}
+
+	empleado modificar;
+
+	//posicionarse al inicio del registro a modificar para lectura
+	int posicion = (posicionEmpleado - 1) * sizeof(empleado);
+	empleadosInOut.seekg(posicion, ios::beg);
+
+	//leer el registro
+	empleadosInOut.read(reinterpret_cast<char*>(&modificar), sizeof(empleado));
+
+	//modifico el registro
+	modificar.activo = 0; //false
+
+	//posicionar al inicio del registro a modificar para escritura
+	empleadosInOut.seekp(posicion, ios::beg);
+
+	//escribir el buffer de datos completos Registro
+	empleadosInOut.write(reinterpret_cast<const char*>(&modificar), sizeof(empleado));
+
+	cout << "Empleado desactivado!\n";
+
+	empleadosInOut.close();
+
+
+}
