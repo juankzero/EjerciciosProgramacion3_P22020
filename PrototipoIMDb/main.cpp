@@ -2,6 +2,7 @@
 #include <conio.h>
 
 #include "MisPeliculas.h";
+#include "MisPeliculasFile.h"
 
 int main() 
 {
@@ -17,7 +18,11 @@ int main()
 	p1->addGenero("Drama");
 	lista.addPelicula(p1);
 
-	lista.imprimirPeliculas();
+	//lista.imprimirPeliculas();
+
+	MisPeliculasFile::guardarListaToFile(lista);
+
+	//MisPeliculasFile::imprimirListaFromFile();
 
 
 	_getch();

@@ -53,3 +53,29 @@ void MisPeliculas::imprimirPeliculas()
 
 }
 
+Pelicula* MisPeliculas::getPrimeraPelicula() 
+{
+	return primeraPelicula;
+}
+
+Pelicula* MisPeliculas::getUltimaPelicula()
+{
+	return ultimaPelicula;
+}
+
+int MisPeliculas::getCantidadPeliculas() 
+{
+	if (estaVacia())
+		return 0;
+
+	Pelicula* actual = primeraPelicula;
+	int cantidad = 0;
+
+	do 
+	{
+		cantidad++;
+		actual = actual->getSiguiente();
+	} while (actual != nullptr);
+
+	return cantidad;
+}

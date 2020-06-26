@@ -141,11 +141,13 @@
     <ClCompile Include="Genero.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MisPeliculas.cpp" />
+    <ClCompile Include="MisPeliculasFile.cpp" />
     <ClCompile Include="Pelicula.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Genero.h" />
     <ClInclude Include="MisPeliculas.h" />
+    <ClInclude Include="MisPeliculasFile.h" />
     <ClInclude Include="Pelicula.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -21,6 +21,11 @@ public:
 
 	void imprimirPeliculas();
 
+	Pelicula* getPrimeraPelicula();
+	Pelicula* getUltimaPelicula();
+
+	int getCantidadPeliculas();
+
 };
 
 
