@@ -20,9 +20,9 @@ int main()
 
 	//lista.imprimirPeliculas();
 
-	MisPeliculasFile::guardarListaToFile(lista);
+	//MisPeliculasFile::guardarListaToFile(lista);
 
-	//MisPeliculasFile::imprimirListaFromFile();
+	MisPeliculasFile::imprimirListaFromFile();
 
 
 	_getch();

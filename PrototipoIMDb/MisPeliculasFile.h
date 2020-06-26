@@ -21,7 +21,7 @@ struct metadata
 	char nombreLista[20];
 	char creador[10];
 	int cantidadPeliculas;
-	char fecha_creacion[8];
+	char fecha_creacion[9];
 };
 
 struct generoFile 
@@ -36,6 +36,13 @@ struct peliculaFile
 	int year;
 	generoFile generos[3];
 	bool activo;
+
+	peliculaFile() 
+	{
+		generos[0].nombre[0] = '\0';
+		generos[1].nombre[0] = '\0';
+		generos[2].nombre[0] = '\0';
+	}
 };
 
 #endif // !MIS_PELICULAS_FILE_H

@@ -19,7 +19,7 @@ void MisPeliculasFile::guardarListaToFile(MisPeliculas _lista)
 	metadata meta;
 	strcpy_s(meta.nombreLista, strlen("miLista") + 1, "miLista");
 	strcpy_s(meta.creador, strlen("zero") + 1, "zero");
-	strcpy_s(meta.creador, strlen("25-06-20") + 1, "25-06-20");
+	strcpy_s(meta.fecha_creacion, strlen("25-06-20") + 1, "25-06-20");
 	meta.cantidadPeliculas = _lista.getCantidadPeliculas();
 
 	archivoLista.seekp(0, ios::beg);
@@ -42,6 +42,7 @@ void MisPeliculasFile::guardarListaToFile(MisPeliculas _lista)
 		{
 			strcpy_s(nueva.generos[indiceGenero].nombre, strlen(actualGenero->getGenero()) + 1, actualGenero->getGenero());
 			actualGenero = actualGenero->getSiguiente();
+			indiceGenero++;
 		} while (actualGenero != nullptr);
 
 		nueva.activo = 1; //true
@@ -87,7 +88,12 @@ void MisPeliculasFile::imprimirListaFromFile()
 
 		for(int j = 0; j < 3; j++)
 		{
-			cout << lectura.generos[j].nombre << ", ";
+			if (j > 0)
+			{
+				if (lectura.generos[j].nombre[0] != '\0')
+					cout << ", " << lectura.generos[j].nombre;
+			}else
+				cout << lectura.generos[j].nombre;
 		}
 
 		cout << "  }\n";
